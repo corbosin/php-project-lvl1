@@ -1,8 +1,15 @@
 {
     "name": "hexlet/code",
     "description": "guide",
-    "require": {},
+    "require": {
+        "wp-cli/php-cli-tools": "^0.11.12"
+    },
     "bin": [
         "bin/brain-games"
-      ]
+      ],
+    "autoload": {
+        "files": [
+            "src/Cli.php"
+        ]
+}
 }
