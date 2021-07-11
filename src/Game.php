@@ -5,11 +5,12 @@ namespace game;
 use function cli\line;
 use function cli\prompt;
 
+
 function check()
 {
     $isTrue = true;
-
-    for ($i = 0; $i < 3; $i++) {
+    $count = 0;
+    while ($isTrue) {
         $number = rand(0, 1000);
         $definentlyEven = ($number % 2) === 0;
 
@@ -17,29 +18,29 @@ function check()
 
         if ($answer === "yes" && $definentlyEven === true) {
             echo "RIGHT!", PHP_EOL;
+            $count += 1;
+            if ($count === 3) {
+                echo 'congrats', PHP_EOL;
+                return false;
+            }
         } else if ($answer === "no" && $definentlyEven === true) {
-            echo "NOPE!", PHP_EOL;
-            break;
+            echo "NOPE! THREE TIMES MORE", PHP_EOL;
+            $count = 0;
         } else if ($answer === "yes" && $definentlyEven === false) {
-            echo "NOPE!", PHP_EOL;
-            break;
+            echo "NOPE!THREE TIMES MORE", PHP_EOL;
+            $count = 0;
         } else if ($answer === "no" && $definentlyEven === false) {
             echo "RIGHT!", PHP_EOL;
+            $count += 1;
+            if ($count === 3) {
+                echo 'congrats', PHP_EOL;
+                return false;
+            }
         } else {
-            echo "NOPE!", PHP_EOL;
-            break;
+            echo "NOPE!THREE TIMES MORE", PHP_EOL;
+            $count = 0;
         }
     }    
+
     return $isTrue;
-}
-
-
-while (!check()) {
-    echo "REPEAT", PHP_EOL;
-}
-
-if (check()) {
-    echo 'YEAAAAH ITS OVER', PHP_EOL;
-}
-
-
+} 
