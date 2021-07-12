@@ -6,11 +6,14 @@
     },
     "bin": [
         "bin/brain-games",
-        "bin/barin-even"
+        "bin/barin-even",
+        "bin/brain-gcd"
       ],
     "autoload": {
         "files": [
-            "src/Cli.php"
+            "src/Cli.php",
+            "src/Game.php",
+            "src/Gcd.php"
         ]
 },
     "require-dev": {
